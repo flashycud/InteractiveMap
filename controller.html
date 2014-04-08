@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://interactivemap.herokuapp.com');
+
+  socket.on('controller', function (data) {
+  	var messageDiv = document.getElementbyId('message');
+  	messageDiv.textContent(data.message);
+  });
+
+  function sendCommand(commandString) {
+  	socket.emit('controller', {command: commandString});
+  }
+</script>
+</head>
+<body>
+Hello! This is CONTROLLER!
+<div id="message"></div>
+<div>
+	<input type="button" value="Open Door" onclick="sendCommand('OPEN_DOOR')" />
+	<input type="button" value="Turn Right" onclick="sendCommand('TURN_RIGHT')" />
+	<input type="button" value="Turn Left" onclick="sendCommand('TURN_LEFT')" />
+	<input type="button" value="Go Straight" onclick="sendCommand('GO_STRAIGHT')" /><!-- 
+	<input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" />
+	<input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" /> -->
+</div>
+</body>
+</html>

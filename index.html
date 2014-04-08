@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://interactivemap.herokuapp.com');
+  
+  socket.on('client', function (data) {
+    var testdiv = document.getElementById('test');
+    testdiv.textContent = data.message;
+  });
+  
+  function sendCommand(commandString) {
+    socket.emit('controller', {command: commandString});
+  }
+</script>
+</head>
+<body>
+hello! This is SMARTWATCH!
+<input type="button" value="" onclick="test()" />
+<div id="test"></div>
+</body>
+</html>

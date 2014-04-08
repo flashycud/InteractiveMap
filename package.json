@@ -1,0 +1,19 @@
+{
+  "name": "_interactivemap",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "socket.io": "~0.9.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:interactivemap.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
