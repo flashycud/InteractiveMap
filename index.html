@@ -1,8 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="user-scalable=no">
-<script src="/socket.io/socket.io.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <title>Interactive Map</title>
+		<script>
+  
+  				$(function() {			
+					//Enable swiping...
+					$("#test").swipe( {
+						swipeStatus:function(event, phase, direction, distance, duration, fingers)
+						{
+							if (direction == "up") {
+							    $(".swipe-button").css("top", (250 - distance) + "px");
+							}
+						},
+						threshold:200,
+						maxTimeThreshold:5000,
+						fingers:'all'
+					});
+				});
+
+		</script>
+		<script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io.connect('http://interactivemap.herokuapp.com');
   
@@ -70,6 +98,17 @@
 	top: -10px;
 	z-index: -1;
 }
+.swipe-button {
+	position: absolute;
+	content: 'Swipe Up';
+	color: #FFF;
+	background-color: #00F;
+	height: 250px;
+	width: 510px;
+	left: -10px;
+	top: 250px;
+	opacity: 0.7;
+}
 .watch-inner{
 	z-index: 0;
 	position:relative;
@@ -121,11 +160,14 @@
 			<div class="watch-screen-inner">
 				<div class="watch-screen">
 					<div class="page-holder">
-						<section class="main-page"> 
-
+						<section class="main-page">
+						    <div class="swipe-button">
+							    
+							</div>
 						</section>
 						<section class="nav-page"> 
 
+						
 						</section>
 						<section class="last-page"> 
 
