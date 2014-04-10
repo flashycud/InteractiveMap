@@ -19,7 +19,7 @@ function handler (req, res) {
       res.end(data);
     });
   }
-  else {
+  else if(url == '/' || url == '') {
     fs.readFile(__dirname + '/index.html',
     function (err, data) {
       if (err) {
@@ -30,6 +30,19 @@ function handler (req, res) {
       res.writeHead(200);
       res.end(data);
     });
+  }
+  else {
+    fs.readFile(__dirname + url,
+    function (err, data) {
+      if (err) {
+        res.writeHead(500);
+        return res.end('Error loading index.html');
+      }
+
+      res.writeHead(200);
+      res.end(data);
+    });
+
   }
 }
 
