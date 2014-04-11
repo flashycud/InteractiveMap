@@ -1,46 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="user-scalable=no"/>
 
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-
-    <title>Interactive Map</title>
-    <script>  
-        // Needed responses for commands:
-        // MAIN  ---------- Page
-        // NAV
-        // LAST
-        // RIGHT ---------- Direction
-        // LEFT
-        // STRAIGHT
-        // DOOR  ---------- Prompt screen / Alert / Notification
-        // ALERT
-        // MAINTAINACE
-        // GO_STRAIGHT
-        // RECEIVE_VOICE
-
-        $(function() {          
-            //Enable swiping...
-            $(".swipe-button").swipe( {
-                swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                {
-                    if (direction == "up") {
-                        $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
-                        
-                    }
-                },
-                threshold:200,
-                maxTimeThreshold:5000,
-                fingers:'all'
-            });
-        });
+        <meta name="viewport" content="user-scalable=no"/>
+        
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <title>Interactive Map</title>
+		<script>
+  
+  				$(function() {			
+					//Enable swiping...
+					$(".swipe-button").swipe( {
+						swipeStatus:function(event, phase, direction, distance, duration, fingers)
+						{
+							if (direction == "up") {
+							    $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700, function () {});
+								
+							}
+						},
+						threshold:200,
+						maxTimeThreshold:5000,
+						fingers:'all'
+					});
+				});
     </script>
     <script src="/socket.io/socket.io.js"></script>
 <script>
