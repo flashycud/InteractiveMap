@@ -13,21 +13,34 @@
 
     <title>Interactive Map</title>
     <script>  
-                $(function() {          
-                    //Enable swiping...
-                    $(".swipe-button").swipe( {
-                        swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                        {
-                            if (direction == "up") {
-                                $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
-                                
-                            }
-                        },
-                        threshold:200,
-                        maxTimeThreshold:5000,
-                        fingers:'all'
-                    });
-                });
+        // Needed responses for commands:
+        // MAIN  ---------- Page
+        // NAV
+        // LAST
+        // RIGHT ---------- Direction
+        // LEFT
+        // STRAIGHT
+        // DOOR  ---------- Prompt screen / Alert / Notification
+        // ALERT
+        // MAINTAINACE
+        // GO_STRAIGHT
+        // RECEIVE_VOICE
+
+        $(function() {          
+            //Enable swiping...
+            $(".swipe-button").swipe( {
+                swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                {
+                    if (direction == "up") {
+                        $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
+                        
+                    }
+                },
+                threshold:200,
+                maxTimeThreshold:5000,
+                fingers:'all'
+            });
+        });
     </script>
     <script src="/socket.io/socket.io.js"></script>
 <script>
