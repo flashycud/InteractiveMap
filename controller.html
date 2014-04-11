@@ -3,28 +3,133 @@
 <head>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io.connect('http://interactivemap.herokuapp.com');
+  // var socket = io.connect('http://interactivemap.herokuapp.com');
+  var socket = io.connect('http://localhost:5000');
 
   socket.on('controller', function (data) {
-  	var messageDiv = document.getElementbyId('message');
-  	messageDiv.textContent(data.message);
+    var messageDiv = document.getElementbyId('message');
+    messageDiv.textContent(data.message);
   });
 
   function sendCommand(commandString) {
-  	socket.emit('controller', {command: commandString});
+    socket.emit('controller', {command: commandString});
   }
 </script>
+<style>
+body,html{
+  font-family: Arial, san-serif;
+}
+header {
+  display: block;
+  margin: auto;
+  width: 700;
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+h1 {
+  font-weight: 900;
+}
+input[type="button"] {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background: transparent;
+  border: 2px solid #333;
+}
+input[type="button"]:hover,
+input[type="button"]:active{
+  background-color: #333;
+  color:#f7f7f7;
+}
+.row {
+  display: table-row;
+  vertical-align: middle;
+}
+.cell, .cell-2{
+  display: table-cell;
+  vertical-align: middle;
+  border-right: transparent 10px solid;
+}
+.cell-2 {
+  padding: 10px 0;
+  font-weight: 700;
+}
+</style>
 </head>
 <body>
-Hello! This is CONTROLLER!
-<div id="message"></div>
-<div>
-	<input type="button" value="Open Door" onclick="sendCommand('OPEN_DOOR')" />
-	<input type="button" value="Turn Right" onclick="sendCommand('TURN_RIGHT')" />
-	<input type="button" value="Turn Left" onclick="sendCommand('TURN_LEFT')" />
-	<input type="button" value="Go Straight" onclick="sendCommand('GO_STRAIGHT')" /><!-- 
-	<input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" />
-	<input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" /> -->
+<header>
+  <h1>SMARTWATCH'S CONTROLLER<h1>
+</header>
+<section class="message-holder">
+  <div id="message"></div>
+</section>
+<div style="display:block;margin:auto;
+width: 520px;">
+<div style="display:inline-block;margin:auto;vertical-align:top">
+  <div class="row">
+    <div class="cell-2">PAGES</div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/main.jpg"/></div>
+    <div class="cell"><input type="button" value="Main Page" onclick="sendCommand('MAIN')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/main.jpg"/></div>
+    <div class="cell"><input type="button" value="Nav Page" onclick="sendCommand('NAV')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/main.jpg"/></div>
+    <div class="cell"><input type="button" value="Last Page" onclick="sendCommand('LAST')" /></div>
+  </div>
+</div>
+
+<div style="display:inline-block;margin:auto;vertical-align:top">
+  <div class="Nav">
+    <div class="cell-2">NAV</div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Turn Right" onclick="sendCommand('RIGHT')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Turn Left" onclick=" sendCommand('LEFT')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Go Straight" onclick ="sendCommand('STRAIGHT')" /></div>
+  </div>
+</div>
+
+<div style="display:inline-block;margin:auto;vertical-align:top">
+  <div class="Nav">
+    <div class="cell-2">Others</div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Prompt Door" onclick="sendCommand('DOOR')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Alert" onclick="sendCommand('ALERT')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Maintainance"  onclick="sendCommand('MAINTAINACE')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Go Straight" onclick ="sendCommand('GO_STRAIGHT')" /></div>
+  </div>
+  <div class="row">
+    <div class="cell"><img height="50px" src="/img/"/></div>
+    <div class="cell"><input type="button" value="Receive voice" onclick="sendCommand('RECEIVE_VOICE')" /></div>
+  </div>
+</div>
+</div>
+  <!-- 
+  <input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" />
+  <input type="button" value="Open door" onclick="sendCommand('OPEN_DOOR')" /> -->
 </div>
 </body>
 </html>
