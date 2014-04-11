@@ -37,8 +37,14 @@
   var socket = io.connect('http://localhost:5000');
   
   socket.on('client', function (data) {
-    var testdiv = document.getElementById('test');
-    testdiv.textContent = data.message;
+     var cmd = data.message;
+     if (cmd == "door-nav") {
+		$(".swipe-button").show();
+	 }
+     else {
+		$(".nav-page").show();
+		$(".nav-page > img").attr("src", cmd + ".jpg");
+	}
   });
   
   function sendCommand(commandString) {
@@ -164,16 +170,12 @@
                 <div class="watch-screen">
                     <div class="page-holder">
                         <section class="main-page">
-                            <div class="swipe-button">
+                            <div class="swipe-button" style="display:none">
                                 <img src="/img/door-overlay.png" width="490px" height="474px"/>
                             </div>
                         </section>
-                        <section class="nav-page"> 
-
-                        
-                        </section>
-                        <section class="last-page"> 
-
+                        <section class="nav-page" style="display:none"> 
+                                <img src="/img/door-overlay.png" width="490px" height="474px"/>
                         </section>
                     </div>
                 </div>
