@@ -20,7 +20,8 @@
 						swipeStatus:function(event, phase, direction, distance, duration, fingers)
 						{
 							if (direction == "up") {
-							    $(".swipe-button").css("top", (250 - distance) + "px");
+							    $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
+								
 							}
 						},
 						threshold:200,
@@ -103,7 +104,7 @@
 	content: 'Swipe Up';
 	color: #FFF;
 	background-color: #00F;
-	height: 250px;
+	height: 1000px;
 	width: 510px;
 	left: -10px;
 	top: 250px;
