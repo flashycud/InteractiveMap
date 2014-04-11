@@ -14,20 +14,24 @@
     <title>Interactive Map</title>
     <script>
 
-        $(function() {          
-                //Enable swiping...
-                $(".swipe-button").swipe( {
-                    swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                    {
-                        if (direction == "up") {
-                            $(".swipe-button").css("top", (250 - distance) + "px");
-                        }
-                    },
-                    threshold:200,
-                    maxTimeThreshold:5000,
-                    fingers:'all'
+        <title>Interactive Map</title>
+        <script>
+  
+                $(function() {          
+                    //Enable swiping...
+                    $(".swipe-button").swipe( {
+                        swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                        {
+                            if (direction == "up") {
+                                $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
+                                
+                            }
+                        },
+                        threshold:200,
+                        maxTimeThreshold:5000,
+                        fingers:'all'
+                    });
                 });
-            });
 
     </script>
     <script src="/socket.io/socket.io.js"></script>
@@ -100,6 +104,7 @@
     z-index: -1;
 }
 .swipe-button {
+<<<<<<< HEAD
     position: absolute;
     content: 'Swipe Up';
     color: #FFF;
@@ -109,6 +114,17 @@
     left: -10px;
     top: 250px;
     opacity: 0.7;
+=======
+	position: absolute;
+	content: 'Swipe Up';
+	color: #FFF;
+	background-color: #00F;
+	height: 1000px;
+	width: 510px;
+	left: -10px;
+	top: 250px;
+	opacity: 0.7;
+>>>>>>> 1a916c1dfdd2da21d1eb4e83ee801629f99d2ca8
 }
 .watch-inner{
     z-index: 0;
