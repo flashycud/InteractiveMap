@@ -55,7 +55,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000;
+    background-color: #000;
+    background-image: url("/img/watchbackground.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 .watch-strap-outer{
     position:absolute;
@@ -88,7 +91,7 @@
     height:490px;
     background:#000;
 }
-.watch-screen-inner:before {
+/*.watch-screen-inner:before {
     border-radius: 1000px;
     position: absolute;
     content:'.';
@@ -99,7 +102,7 @@
     left: -10px;
     top: -10px;
     z-index: -1;
-}
+}*/
 .swipe-button {
     position: absolute;
     content: 'Swipe Up';
@@ -155,10 +158,10 @@
 <section class="main">
     <div class="watch-outer">
         <div class="watch-inner">
-            <div class="watch-strap-outer">
+            <!-- <div class="watch-strap-outer">
                 <div class="watch-strap">
                 </div>
-            </div>
+            </div> -->
             <div class="watch-screen-inner">
                 <div class="watch-screen">
                     <div class="page-holder">
