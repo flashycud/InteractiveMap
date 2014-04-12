@@ -41,14 +41,18 @@
      if (cmd == "door-nav") {
 		$(".swipe-button").show();
 		$(".nav-page").hide();
+        $(".page-holder").css("left","0%");
 	 }
      else {
 		$(".nav-page").show();
 		$(".swipe-button").hide();
-		$(".nav-page > img").attr("src", cmd + ".jpg");
+		$(".nav-page > img").attr("src", "/img/" + cmd + ".jpg");
+        $(".page-holder").css("left","-100%");
 	}
   });
-  
+  $(function() {
+        $(".page-holder").css("left","0%");
+  });
   function sendCommand(commandString) {
     socket.emit('controller', {command: commandString});
   }
