@@ -40,9 +40,11 @@
      var cmd = data.message;
      if (cmd == "door-nav") {
 		$(".swipe-button").show();
+		$(".nav-page").hide();
 	 }
      else {
 		$(".nav-page").show();
+		$(".swipe-button").hide();
 		$(".nav-page > img").attr("src", cmd + ".jpg");
 	}
   });
