@@ -21,7 +21,7 @@
 						swipeStatus:function(event, phase, direction, distance, duration, fingers)
 						{
 							if (direction == "up") {
-							    $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700, function () {sendCommand("Open_Door")});
+							    $(".swipe-button").css("top", (250 - distance) + "px").delay( 800 ).fadeOut( 700 );
 								
 							}
 						},
